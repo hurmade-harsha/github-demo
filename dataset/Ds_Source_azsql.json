@@ -1,0 +1,27 @@
+{
+	"name": "Ds_Source_azsql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "constrg_sqlsever",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SERVER_NAME": {
+				"type": "string"
+			},
+			"SOURCE_DB": {
+				"type": "string"
+			},
+			"USER_NAME": {
+				"type": "string"
+			},
+			"PASSWORD": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

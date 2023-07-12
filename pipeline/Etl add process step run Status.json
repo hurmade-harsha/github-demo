@@ -1,0 +1,104 @@
+{
+	"name": "Etl add process step run Status",
+	"properties": {
+		"activities": [
+			{
+				"name": "ETL add process step run status",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[USP_ETL_Add_Process_Step_Run_Status]",
+					"storedProcedureParameters": {
+						"Description": {
+							"value": {
+								"value": "@pipeline().parameters.Description",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"End_Date_Time": {
+							"value": {
+								"value": "@pipeline().parameters.End_Date_Time",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"Process_id": {
+							"value": {
+								"value": "@pipeline().parameters.Process_id",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"Process_Step_id": {
+							"value": {
+								"value": "@pipeline().parameters.Process_Step_id",
+								"type": "Expression"
+							},
+							"type": "Byte"
+						},
+						"Process_Step_Name": {
+							"value": {
+								"value": "@pipeline().parameters.Process_Step_name",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Start_Date_Time": {
+							"value": {
+								"value": "@pipeline().parameters.Start_Date_Time",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"Status": {
+							"value": {
+								"value": "@pipeline().parameters.Status",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "constrg_sqlsever",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"Process_id": {
+				"type": "string"
+			},
+			"Process_Step_name": {
+				"type": "string"
+			},
+			"Process_Step_id": {
+				"type": "string"
+			},
+			"Status": {
+				"type": "string"
+			},
+			"Start_Date_Time": {
+				"type": "string"
+			},
+			"End_Date_Time": {
+				"type": "string"
+			},
+			"Description": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-07-12T12:36:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

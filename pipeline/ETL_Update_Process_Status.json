@@ -1,0 +1,60 @@
+{
+	"name": "ETL_Update_Process_Status",
+	"properties": {
+		"activities": [
+			{
+				"name": "USP_ETL_Update_Process_Status",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[USP_ETL_Update_Process_Status]",
+					"storedProcedureParameters": {
+						"Description": {
+							"value": null,
+							"type": "String"
+						},
+						"Process_Id": {
+							"value": {
+								"value": "@pipeline().parameters.Process_Id",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"Status": {
+							"value": {
+								"value": "@pipeline().parameters.Status",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "constrg_sqlsever",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"Process_Id": {
+				"type": "string",
+				"defaultValue": "0"
+			},
+			"Status": {
+				"type": "string",
+				"defaultValue": "UNKNOWN"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-07-12T12:36:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,31 @@
+{
+	"name": "SEND EMAIL SUCCESSFUL",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipeline _success_email",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-50.eastus.logic.azure.com:443/workflows/a3c9b67fc5b34cabb68104a7463a481d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PHG6vfcEYB4g2wAgl0HUkjnBl0ynrRy6qQXVUWTRLeE",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"PipelineName\": \"@{pipeline().Pipeline}\",\n\"DataFactoryName\":\"@{pipeline().DataFactory}\",\n\"RunId\":\"@{pipeline().RunId}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-07-12T12:36:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

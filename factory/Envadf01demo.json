@@ -1,0 +1,9 @@
+{
+	"name": "Envadf01demo",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2d312330-9832-4d63-b710-e48432dfe389",
+		"tenantId": "900faaf5-cbfb-4fe5-a96f-e046056f1584"
+	}
+}

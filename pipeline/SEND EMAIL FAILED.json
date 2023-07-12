@@ -1,0 +1,31 @@
+{
+	"name": "SEND EMAIL FAILED",
+	"properties": {
+		"activities": [
+			{
+				"name": "Process failed email",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-33.eastus.logic.azure.com:443/workflows/978d691d023b477a84096171ed2b3db3/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=GNHDPuJ4e5TccF5bkHs_LdPHefRHIpAF1FqZNIQDUCg",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"Status\": \"Failed\",\n\"PipelineName\": \"@{pipeline().Pipeline}\",\n\"DataFactoryName\":\"@{pipeline().DataFactory}\",\n\"RunId\":\"@{pipeline().RunId}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-07-12T12:36:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
